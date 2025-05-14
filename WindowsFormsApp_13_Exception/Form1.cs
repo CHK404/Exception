@@ -79,7 +79,34 @@ namespace WindowsFormsApp_13_Exception
                 Console.ReadLine();
             }
 
-           //ex
+            //ex
+            try
+            {
+                Console.Write("닉네임을 입력해주세요. ");
+                string idInput = Console.ReadLine();
+
+                if (idInput == "")
+                {
+                    throw new Exception("닉네임을 입력해주세요.");
+                }
+                if (idInput.Length < 2)
+                {
+                    throw new Exception("닉네임은 두글자 이상이어야 합니다.");
+                }
+                if (idInput.Contains("admin"))
+                {
+                    throw new Exception("닉네임에 admin은 포함할 수 없습니다.");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("오류가 발생했습니다.");
+                Console.WriteLine($"[예외 메세지]: {ex.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("프로그램을 종료합니다.");
+            }
         }
         /*
          * ex객체 찍어볼 수 있다
